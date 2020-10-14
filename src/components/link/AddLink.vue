@@ -131,13 +131,14 @@ export default {
           this.form = {
             desc: "",
           };
+          this.getSort();
         });
       } else {
         let data = {
-          id: 1,
+          id: this.currentId,
           description: this.form.desc,
         };
-        this.$http.post("/website/update", data).then((res) => {
+        this.$http.post("/website/update/type", data).then((res) => {
           console.log(res);
           this.getSort();
           this.form = {

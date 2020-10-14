@@ -179,12 +179,12 @@ export default {
         // });
         console.log(this.form);
         let data = {
-          id:this.currentid,
+          historyYearId:this.currentid,
           year: this.form.year,
           description: this.form.desc,
         };
         // this.$message("调用修改接口");
-        this.$http.post("/history/update", data).then((res) => {
+        this.$http.post("/history/update/year", data).then((res) => {
           console.log(res);
           this.getList(this.currentPage4, 5);
           this.currentid = 0

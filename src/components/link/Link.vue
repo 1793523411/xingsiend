@@ -43,6 +43,7 @@
       <!-- <el-table-column prop="name" label="描述" width="180"></el-table-column> -->
       <el-table-column prop="websiteName" label="名称"></el-table-column>
       <el-table-column prop="url" label="链接"></el-table-column>
+      <el-table-column prop="description" label="描述"></el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-tooltip class="item" effect="dark" content="编辑" placement="top">
@@ -77,6 +78,9 @@
         <el-form-item label="URL" :label-width="formLabelWidth">
           <el-input v-model="form.url" autocomplete="off"></el-input>
         </el-form-item>
+        <el-form-item label="描述" :label-width="formLabelWidth">
+          <el-input v-model="form.description" autocomplete="off"></el-input>
+        </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible = false">取 消</el-button>
@@ -108,6 +112,7 @@ export default {
       form: {
         name: "",
         url: "",
+        description:""
       },
       isUpdate: false,
       currUrlId: "",
@@ -140,6 +145,7 @@ export default {
       this.form = {
         name: row.websiteName,
         url: row.url,
+        description:row.description
       };
     },
     handleDelete(index, row) {
@@ -179,9 +185,10 @@ export default {
       console.log(this.form);
       //根据this.form.name找到对应类别的类别id
       let data = {
-        id: this.value,
+        websiteTypeId: this.value,
         name: this.form.name,
         url: this.form.url,
+        description:this.form.description
       };
 
       if (!this.isUpdate) {
@@ -190,27 +197,31 @@ export default {
           this.form = {
             name: "",
             url: "",
+            description:""
           };
           this.getLink(this.value);
         });
       } else {
         let data = {
-          id: this.value,
+          websiteTypeId: this.value,
           name: this.form.name,
           url: this.form.url,
+          description:this.form.description,
+          websiteUrlId:this.currUrlId
         };
 
-        this.$http.post("/website/detail/delete/" + this.currUrlId).then(() => {
-          this.$http.post("/website/detail/add", data).then((res) => {
+        // this.$http.post("/website/detail/delete/" + this.currUrlId).then(() => {
+          this.$http.post("/website/update/url", data).then((res) => {
             console.log(res);
             this.getLink(this.value);
             this.form = {
               name: "",
               url: "",
+              description:""
             };
           });
           this.isUpdate = false;
-        });
+        // });
       }
     },
     getSortId() {

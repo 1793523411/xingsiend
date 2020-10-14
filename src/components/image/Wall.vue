@@ -71,6 +71,7 @@
         :on-remove="handleRemove"
         :file-list="fileList"
         list-type="picture"
+        :limit="1"
       >
         <el-button size="small" type="primary">点击上传</el-button>
         <div slot="tip" class="el-upload__tip">上传该相册的封面</div>
@@ -110,6 +111,7 @@ export default {
         "https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg",
       isUpdate: false,
       currentId: 0,
+      // count:0
     };
   },
   components: {
@@ -144,6 +146,7 @@ export default {
       });
     },
     add() {
+      this.handleRemove()
       this.form = {
         name: "",
         desc: "",
@@ -153,19 +156,19 @@ export default {
         this.fileList = [];
       }
       this.dialogFormVisible = true;
-      this.$alert(
-        "上传图片请保留当前图片列表有且仅有一张图片，如果修改图片请先删除当前图片再重新上传，否则后果自负",
-        "提醒",
-        {
-          confirmButtonText: "确定",
-          callback: () => {
-            this.$message({
-              type: "info",
-              message: `谢谢您的配合`,
-            });
-          },
-        }
-      );
+      // this.$alert(
+      //   "上传图片请保留当前图片列表有且仅有一张图片，如果修改图片请先删除当前图片再重新上传，否则后果自负",
+      //   "提醒",
+      //   {
+      //     confirmButtonText: "确定",
+      //     callback: () => {
+      //       this.$message({
+      //         type: "info",
+      //         message: `谢谢您的配合`,
+      //       });
+      //     },
+      //   }
+      // );
     },
     submit() {
       if (!this.form.name | !this.form.desc | !this.form.src) {
@@ -248,19 +251,19 @@ export default {
       if (this.fileList.length !== 0) {
         this.fileList = [];
       }
-      this.$alert(
-        "上传图片请保留当前图片列表有且仅有一张图片，如果修改图片请先删除当前图片再重新上传，否则后果自负",
-        "提醒",
-        {
-          confirmButtonText: "确定",
-          callback: () => {
-            this.$message({
-              type: "info",
-              message: `谢谢您的配合`,
-            });
-          },
-        }
-      );
+      // this.$alert(
+      //   "上传图片请保留当前图片列表有且仅有一张图片，如果修改图片请先删除当前图片再重新上传，否则后果自负",
+      //   "提醒",
+      //   {
+      //     confirmButtonText: "确定",
+      //     callback: () => {
+      //       this.$message({
+      //         type: "info",
+      //         message: `谢谢您的配合`,
+      //       });
+      //     },
+      //   }
+      // );
       this.isUpdate = true;
       this.currentId = id;
       // console.log(id)
@@ -298,12 +301,26 @@ export default {
       console.log(file, fileList);
     },
     handlePreview(file) {
-      console.log(file);
+      console.log('111')
+      // console.log(file);
+      window.open(file.url, "_blank");
     },
-    onSuccess(file) {
-      console.log(file);
-      console.log(this.form);
+    // eslint-disable-next-line no-unused-vars
+    onSuccess(file,fileList) {
+      // this.count++
+      // if(this.count!==1){
+      //   // this.handleRemove()
+      //   this.fileList.shift()
+      // }
+      console.log(this.count)
+      console.log(this.fileList)
+      // console.log(file);
+      // console.log(this.form);
       this.form.src = file.data.img.url;
+      // if(this.fileList.length!==1){
+      //   
+      // }
+      
       this.$message("上传成功");
     },
     onFail() {

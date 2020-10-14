@@ -47,6 +47,7 @@
       <el-table-column prop="name" label="名字"></el-table-column>
       <el-table-column prop="job" label="任职情况"></el-table-column>
       <el-table-column prop="grade" label="专业班级"></el-table-column>
+      <el-table-column prop="comment" label="学长寄语"></el-table-column>
       <el-table-column prop="weight" label="权重"></el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
@@ -84,6 +85,9 @@
         </el-form-item>
         <el-form-item label="任职" :label-width="formLabelWidth">
           <el-input v-model="form.job" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="学长寄语" :label-width="formLabelWidth">
+          <el-input v-model="form.comment" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="权重" :label-width="formLabelWidth">
           <div class="block">
@@ -139,6 +143,7 @@ export default {
         year: "",
         grade: "",
         job: "",
+        comment: "",
       },
       isUpdate: false,
       updatePeronId: 0,
@@ -192,6 +197,7 @@ export default {
         grade: row.grade,
         job: row.job,
         year: 2020,
+        comment:row.comment
       };
       this.weight = row.weight;
       this.updatePeronId = row.historyPersonId;
@@ -236,6 +242,7 @@ export default {
             grade: "",
             year: "",
             job: "",
+            comment: "",
           };
           this.isUpdate = false;
           done();
@@ -249,6 +256,7 @@ export default {
         grade: "",
         year: "",
         job: "",
+        comment: "",
       };
       this.isUpdate = false;
     },
@@ -256,27 +264,38 @@ export default {
       this.dialogVisible = false;
       console.log(this.form);
       //根据this.form.year找到year的年id
+      // let data = {
+      //   id: this.value,
+      //   data: [
+      //     {
+      //       name: this.form.name,
+      //       grade: this.form.grade,
+      //       job: this.form.job,
+      //       yearId:this.value,
+      //       comment: this.form.comment,
+      //       weight: this.weight,
+      //     },
+      //   ],
+      // };
       let data = {
-        id: this.value,
-        data: [
-          {
             name: this.form.name,
             grade: this.form.grade,
             job: this.form.job,
+            yearId:this.value,
+            comment: this.form.comment,
             weight: this.weight,
-          },
-        ],
-      };
+          }
       if (!this.isUpdate) {
         if (
           this.form.name === "" ||
           this.form.grade === "" ||
-          this.form.job === ""
+          this.form.job === "" ||
+          this.form.comment === ""
         ) {
           this.$message("请将信息填完整");
           return;
         }
-        this.$http.post("/history/person/add", data).then((res) => {
+        this.$http.post("/history/add/person", data).then((res) => {
           console.log(res);
           if (this.value) {
             this.getList(this.value);
@@ -289,6 +308,7 @@ export default {
             grade: "",
             year: "",
             job: "",
+            comment: "",
           };
         });
       } else {
@@ -308,16 +328,24 @@ export default {
             name: this.form.name,
             grade: this.form.grade,
             job: this.form.job,
+            comment: this.form.comment,
             weight: this.weight,
           };
           console.log(data);
           this.$http.post("/history/update/person", data).then(() => {
             // this.getList(this.value);
             if (this.value) {
-            this.getList(this.value);
-          } else {
-            this.getListPage(this.currentPage4, 5);
-          }
+              this.getList(this.value);
+            } else {
+              this.getListPage(this.currentPage4, 5);
+            }
+            this.form = {
+              name: "",
+              grade: "",
+              year: "",
+              job: "",
+              comment: "",
+            };
           });
         });
 

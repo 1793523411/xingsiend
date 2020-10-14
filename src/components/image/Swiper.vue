@@ -50,6 +50,7 @@
         :on-remove="handleRemove"
         :file-list="fileList"
         list-type="picture"
+        :limit="1"
       >
         <el-button size="small" type="primary">点击上传</el-button>
         <div slot="tip" class="el-upload__tip">上传照片</div>
@@ -122,19 +123,19 @@ export default {
     },
     add() {
       this.dialogFormVisible = true;
-            this.$alert(
-        "上传图片请保留当前图片列表有且仅有一张图片，如果修改图片请先删除当前图片再重新上传，否则后果自负",
-        "提醒",
-        {
-          confirmButtonText: "确定",
-          callback: () => {
-            this.$message({
-              type: "info",
-              message: `谢谢您的配合`,
-            });
-          },
-        }
-      );
+      //       this.$alert(
+      //   "上传图片请保留当前图片列表有且仅有一张图片，如果修改图片请先删除当前图片再重新上传，否则后果自负",
+      //   "提醒",
+      //   {
+      //     confirmButtonText: "确定",
+      //     callback: () => {
+      //       this.$message({
+      //         type: "info",
+      //         message: `谢谢您的配合`,
+      //       });
+      //     },
+      //   }
+      // );
     },
     del(id){
 
