@@ -1,6 +1,12 @@
 <template>
   <div class="card">
     <el-page-header @back="goBack" content="编辑新闻"> </el-page-header>
+    <el-input
+          class="input"
+          v-model="title"
+          placeholder="请输入文章标题"
+          style="left:0px;width:1050px;margin-bottom:0px"
+        ></el-input>
     <div class="example">
       <el-upload
         class="upload-demo2"
@@ -81,12 +87,12 @@
       :append-to-body="true"
     >
       <div class="draw">
-        <div>文章标题</div>
+        <!-- <div>文章标题</div>
         <el-input
           class="input"
           v-model="title"
           placeholder="请输入文章标题"
-        ></el-input>
+        ></el-input> -->
         <div>文章作者</div>
         <el-input
           class="input"

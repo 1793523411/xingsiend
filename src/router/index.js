@@ -9,7 +9,7 @@ const Home = () =>
   import(/* webpackChunkName: "login_home_welcome" */ "../components/Home.vue");
 const Welcome = () =>
   import(
-    /* webpackChunkName: "login_home_welcome" */ "../components/Welcome.vue"
+    /* webpackChunkName: "login_home_welcome" */ "../components/article/Article.vue"
   );
 const Editor = () =>
   import(

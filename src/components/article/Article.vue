@@ -2,7 +2,7 @@
   <div>
     <!-- <el-page-header content="新闻列表"> </el-page-header> -->
     <div class="head">| 新闻列表</div>
-    <div style="height:50px"></div>
+    <div style="height: 50px"></div>
     <el-row type="flex">
       <el-col :span="18">
         <el-form label-width="80px" :model="formLabelAlign">
@@ -101,6 +101,14 @@
     </el-pagination>
 
     <el-drawer title="" :visible.sync="drawer2" :with-header="true" size="70%">
+      <div style="position:absolute;left:30px;top:70px">标题</div>
+     
+      <el-input
+        class="input"
+        v-model="title"
+        placeholder="请输入文章标题"
+        style="left: 0px; width: 900px; margin-bottom: 0px"
+      ></el-input>
       <div class="example">
         <el-upload
           class="upload-demo2"
@@ -139,12 +147,13 @@
         :append-to-body="true"
       >
         <div class="draw">
-          <div>文章标题</div>
+          <!-- <div>文章标题</div>
           <el-input
             class="input"
             v-model="title"
             placeholder="请输入文章标题"
-          ></el-input>
+          ></el-input> -->
+          <div>文章作者</div>
           <el-input
             class="input"
             v-model="author"
@@ -178,7 +187,8 @@
             <!-- <el-button type="primary" plain @click="tmp = !tmp">变成图片</el-button> -->
           </span>
           <span v-else>
-            <img class="img" :src="url" alt />
+            <img class="img" :src="url" alt style="height:300px;;margin-bottom:10px"/>
+            <br>
           </span>
           <el-button type="primary" plain @click="clearImg">更改图片</el-button>
         </div>
@@ -412,7 +422,7 @@ export default {
         // });
       });
 
-      this.$message.success("文章已被添加");
+      this.$message.success("文章已被修改");
       this.content = "";
       this.title = "";
       this.text = "";
@@ -471,10 +481,10 @@ export default {
         message: this.formLabelAlign.name,
       };
       console.log(datas);
-      this.$http.post("/news/search", datas).then(res => {
-        console.log(res)
+      this.$http.post("/news/search", datas).then((res) => {
+        console.log(res);
         this.tableData = res.data.data.news_data;
-        this.total = res.data.data.total
+        this.total = res.data.data.total;
       });
       // this.$http({
       //   method: "post",
@@ -554,7 +564,7 @@ export default {
 /* .el-button: {
   margin-left: -10px;
 } */
-.head{
+.head {
   position: absolute;
   left: 230px;
   font-size: 20px;
