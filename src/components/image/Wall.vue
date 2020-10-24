@@ -64,7 +64,7 @@
       </el-form>
       <el-upload
         class="upload-demo"
-        action="http://39.101.140.225:8080/image/upload/album/thumb"
+        action="http://101.201.125.229:8082/image/upload/album/thumb"
         :on-error="onFail"
         :on-success="onSuccess"
         :on-preview="handlePreview"

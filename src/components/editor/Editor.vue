@@ -112,7 +112,7 @@
           <el-upload
             class="upload-demo"
             drag
-            action="http://39.101.140.225:8080/image/upload/news/thumb"
+            action="http://101.201.125.229:8082/image/upload/news/thumb"
             :headers="header"
             :on-success="handleAvatarSuccess"
             multiple
@@ -248,7 +248,7 @@ export default {
       dialogVisible: false,
       imageUrl: "",
       tmp: true,
-      uploadURL: "http://39.101.140.225:8080/image/upload/news",
+      uploadURL: "http://101.201.125.229:8082/image/upload/news",
       drawer: false,
       drawer2: false,
       title: "",

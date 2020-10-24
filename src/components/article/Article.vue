@@ -114,7 +114,7 @@
           class="upload-demo2"
           :show-file-list="false"
           drag
-          action="http://39.101.140.225:8080/image/upload/news"
+          action="http://101.201.125.229:8082/image/upload/news"
           :headers="header"
           :on-success="handleSuccess"
           multiple
@@ -172,7 +172,7 @@
             <el-upload
               class="upload-demo"
               drag
-              action="http://39.101.140.225:8080/image/upload/news/thumb"
+              action="http://101.201.125.229:8082/image/upload/news/thumb"
               :headers="header"
               :on-success="handleAvatarSuccess"
               multiple

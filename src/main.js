@@ -26,7 +26,7 @@ Vue.prototype.$moment = moment;
 
 Vue.prototype.$theme = "dark-mode"
 
-axios.defaults.baseURL = "http://39.101.140.225:8080";
+axios.defaults.baseURL = "http://101.201.125.229:8082";
 
 
 axios.interceptors.request.use((config) => {
