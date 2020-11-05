@@ -4,12 +4,12 @@
       <el-header>
         <div class="header">
         <img
-          src="https://wx-xly-1301545895.cos.ap-beijing.myqcloud.com/xingsi-front/xingsilogo.png"
+          src="../assets/img/xingsilogo.png"
         />
         <span>后台管理系统</span>
         <el-dropdown size="mini" @command="handleCommand">
           <img style="cursor: pointer;"
-            src="https://wx-xly-1301545895.cos.ap-beijing.myqcloud.com/wx-image/u%3D263203157%2C1436059132%26fm%3D26%26gp%3D0.jpg"
+            src="../assets/img/avtor.jpg"
           />
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item command="a">
