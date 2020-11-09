@@ -6,7 +6,7 @@
         <img
           src="../assets/img/xingsilogo.png"
         />
-        <span>后台管理系统</span>
+        <span>后台管理系统~~~</span>
         <el-dropdown size="mini" @command="handleCommand">
           <img style="cursor: pointer;"
             src="../assets/img/avtor.jpg"
