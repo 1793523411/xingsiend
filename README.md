@@ -1,5 +1,7 @@
 # 项目介绍
 
+[项目地址](http://xingsiend.xsgzs.cn/)
+
 社团官网后台管理系统，vue+elementui，虽然市面上后台模板很多，但还是选择手写，其实是为了练习vue和elementui，[区别于自己用node写的后端](https://github.com/1793523411/xingsi)，这个功能要更全面一些，且后端是java写的接口，毕竟是和别人一起开发的嘛，[跟mock模拟数据的这个风格很像](https://github.com/1793523411/vue-xingsimaster-mock)，但也有略微不同，因为这个是在学长的建议下改了好多布局上的东西
 
 
