@@ -17,7 +17,7 @@
 
 请求参数：POST
 
-```json
+```js
 {
 "author": "xxx",//新闻作者姓名
 "title": "xxx",//新闻标题
