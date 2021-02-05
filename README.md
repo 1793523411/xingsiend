@@ -9,7 +9,7 @@
 
 ## 后端接口提取（开发阶段的，有些后期改了没有同步）
 
-根路径：`http://39.101.140.225:8080`
+根路径：xxx
 
 ### 新闻
 
@@ -206,7 +206,7 @@ GET
 ## 前台接口
 
 ### 轮播
-请求格式：get请求 http://121.36.55.44:8080/carousel_pics
+请求格式：get请求 http://xxx/carousel_pics
 {	
 	"code": 0,
 	"msg":
@@ -215,7 +215,7 @@ GET
 }]
 }
 ### 新闻缩略：
-请求：get http://121.36.55.44:8080/news
+请求：get http://xxx/news
 {
 	"code": 0,	//成功0，不成功-1
 	"msg": ""
@@ -243,7 +243,7 @@ GET
 }
 
 ### 单条新闻：
-请求格式：Get请求http://121.36.55.44:8080/news/detail/{1}  1为新闻id
+请求格式：Get请求xxxx/news/detail/{1}  1为新闻id
 {
 	"code": 
 	"msg":
@@ -260,7 +260,7 @@ GET
 
 ###  相册：
 相册列表：
-get请求 http://121.36.55.44:8080/album
+get请求 xxxx/album
 
 {
 	"code": 
@@ -274,7 +274,7 @@ get请求 http://121.36.55.44:8080/album
 }
 
 ### 具体相册：
-get  http://121.36.55.44:8080/album/{id}  id为相册id
+get  xxxx/album/{id}  id为相册id
 {
 	"code": 
 	"msg":
@@ -294,7 +294,7 @@ get  http://121.36.55.44:8080/album/{id}  id为相册id
 }
 
 ### 历史：
-Get请求 http://121.36.55.44:8080/history
+Get请求 xxxx/history
 {
 	"code":
 	"msg":
@@ -306,7 +306,7 @@ Get请求 http://121.36.55.44:8080/history
 }
 
 ### 网址导航
-Get  121.36.55.44:8080/nagivation
+Get  xxxx/nagivation
 {
 	"code":
 	"msg":
