@@ -36,7 +36,7 @@
 
 请求参数：GET
 
-```json
+```js
 {
   "id": 22 //新闻 id 编号，上传新闻成功后，后端返回的数据中包含新闻编号
 }
@@ -74,7 +74,7 @@ GET
 
 请求参数：
 
-```json
+```js
 {
   "name": "xxx", //相册名称
   "thumb": "xxx.jpg", //相册封面图片完整的 url 地址
@@ -86,7 +86,7 @@ GET
 
 请求参数：GET
 
-```json
+```js
 {
 "id":78 //此 id 编号为相册的 id，在哪一个相册中上传图片，这个 id 参数就是哪一个相册的 id
 "description":上传的图片的简略文字描述
@@ -96,7 +96,7 @@ GET
 修改相册：`/album/update`
 请求参数：GET
 
-```json
+```js
 {
   "id": 1, //要修改的相册 id
   "name": "xxxx", //修改后的相册名
@@ -113,7 +113,7 @@ GET
 
 请求参数：POST
 
-```json
+```js
 {
 "year": “2020”,//年份
 "description": "xxxx", //描述，可以描述 2020 年对应多少届，有什么成就之类的
@@ -123,7 +123,7 @@ GET
 接着上面接口添加任职情况：
 `/history/person/add`
 
-```json
+```js
 {
 "id": 21//id 为行思历史编号
 "data": [
@@ -146,7 +146,7 @@ GET
 
 修改历史：`/history/update`
 
-```json
+```js
 {
 “id”:11 //id 为每届历史编号
 "year": 2020,//修改后的年份
@@ -172,7 +172,7 @@ GET
 
 添加类目：
 
-```json
+```js
 {
   "description": "xxx" //例如:影视娱乐
 }
@@ -182,7 +182,7 @@ GET
 
 `/website/update`
 
-```json
+```js
 {
   "id": 1, //id 为要修改的类目编号
   "description": "影视娱乐" //类目描述
@@ -193,7 +193,7 @@ GET
 
 请求参数：
 
-```json
+```js
 {
   "id": 1, //id 为已创建的网站类目 id 编号
   "name": "谷歌",
@@ -207,6 +207,7 @@ GET
 
 ### 轮播
 请求格式：get请求 http://xxx/carousel_pics
+```js
 {	
 	"code": 0,
 	"msg":
@@ -214,8 +215,10 @@ GET
 "jumpUrl":
 }]
 }
+```
 ### 新闻缩略：
 请求：get http://xxx/news
+```js
 {
 	"code": 0,	//成功0，不成功-1
 	"msg": ""
@@ -241,9 +244,10 @@ GET
 			"navigateLastPage":2
 		}
 }
-
+```
 ### 单条新闻：
 请求格式：Get请求xxxx/news/detail/{1}  1为新闻id
+```js
 {
 	"code": 
 	"msg":
@@ -257,11 +261,11 @@ GET
 	}
 
 }
-
+```
 ###  相册：
 相册列表：
 get请求 xxxx/album
-
+```js
 {
 	"code": 
 	"msg":
@@ -272,9 +276,10 @@ get请求 xxxx/album
 		"albumTime": "相册创建时间",
 	}
 }
-
+```
 ### 具体相册：
 get  xxxx/album/{id}  id为相册id
+```js
 {
 	"code": 
 	"msg":
@@ -292,9 +297,10 @@ get  xxxx/album/{id}  id为相册id
 	}
 
 }
-
+```
 ### 历史：
 Get请求 xxxx/history
+```js
 {
 	"code":
 	"msg":
@@ -304,9 +310,10 @@ Get请求 xxxx/history
 		"person":{"name": "张三", "grade": "计科", "job": "xxx"}
 	}
 }
-
+```
 ### 网址导航
 Get  xxxx/nagivation
+```js
 {
 	"code":
 	"msg":
@@ -317,5 +324,5 @@ Get  xxxx/nagivation
 			[列表]
 	}
 }
-
+```
 
