@@ -64,6 +64,16 @@
                     >
                     <!-- <el-menu-item index="2-3">选项3</el-menu-item> -->
                   </el-menu-item-group>
+                  <el-menu-item-group>
+                    <!-- <el-menu-item index="/swiper" @click="saveNavState('/' + 'swiper')">添加相册</el-menu-item>
+                    <el-menu-item index="/addimg" @click="saveNavState('/' + 'addimg')">添加图片</el-menu-item> -->
+                    <el-menu-item
+                      index="/lun"
+                      @click="saveNavState('/' + 'lun')"
+                      >轮播图管理</el-menu-item
+                    >
+                    <!-- <el-menu-item index="2-3">选项3</el-menu-item> -->
+                  </el-menu-item-group>
                 </el-submenu>
                 <el-submenu index="3">
                   <template slot="title">

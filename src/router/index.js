@@ -25,6 +25,8 @@ const Swiper = () =>
   );
 const Wall = () =>
   import(/* webpackChunkName: "Swiper_Wall" */ "../components/image/Wall.vue");
+const Lun = () =>
+  import(/* webpackChunkName: "Swiper_Wall" */ "../components/image/AddImg.vue");
 const AddImg = () =>
   import(
     /* webpackChunkName: "Swiper_Wall" */ "../components/image/AddImg.vue"
@@ -65,6 +67,7 @@ const routes = [
       { path: "/article", component: Article },
       { path: "/swiper/:id", component: Swiper },
       { path: "/wall", component: Wall },
+      { path: "/lun", component: Lun },
       { path: "/addimg", component: AddImg },
       { path: "/History", component: History },
       { path: "/AddHistory", component: AddHistory },
@@ -78,12 +81,12 @@ const router = new VueRouter({
   routes,
 });
 
-// router.beforeEach((to, from, next) => {
-//   if (to.path === "/login") return next();
+router.beforeEach((to, from, next) => {
+  if (to.path === "/login") return next();
 
-//   const tokenStr = window.sessionStorage.getItem("token");
-//   if (!tokenStr) return next("/login");
-//   next();
-// });
+  const tokenStr = window.sessionStorage.getItem("token");
+  if (!tokenStr) return next("/login");
+  next();
+});
 
 export default router;

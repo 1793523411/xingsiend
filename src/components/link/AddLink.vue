@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-            <div class="headsort">| 分类管理</div>
+    <div class="headsort">| 分类管理</div>
     <!-- <div style="height:50px"></div> -->
     <el-table :data="tableData" style="width: 100%">
       <el-table-column
@@ -46,10 +46,15 @@
       </span>
     </el-dialog>
 
-<div class="add" @click="add()">
-      <el-button type="primary" icon="el-icon-circle-plus-outline
-" style="font-weight:bold;letter-spacing:1px;">添加分类</el-button>
-  </div>
+    <div class="add" @click="add()">
+      <el-button
+        type="primary"
+        icon="el-icon-circle-plus-outline
+"
+        style="font-weight: bold; letter-spacing: 1px"
+        >添加分类</el-button
+      >
+    </div>
 
     <!-- <div @click="add()">
       <add></add>
@@ -92,11 +97,11 @@ export default {
         type: "warning",
       })
         .then(() => {
-          this.$message({
-            type: "success",
-            message: "删除成功!",
-          });
           this.$http.post("/website/delete/" + row.websiteTypeId).then(() => {
+            this.$message({
+              type: "success",
+              message: "删除成功!",
+            });
             this.getSort();
           });
         })
@@ -168,13 +173,13 @@ export default {
   padding-top: 28px;
   min-height: 500px;
 }
-.add{
-    position: absolute;
-    top: 98px;
-    right: -900px;
-   z-index: 10;
+.add {
+  position: absolute;
+  top: 98px;
+  right: -900px;
+  z-index: 10;
 }
-.headsort{
+.headsort {
   position: absolute;
   left: 230px;
   top: 100px;
