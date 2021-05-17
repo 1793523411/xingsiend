@@ -1,6 +1,12 @@
 # 项目介绍
 
+[项目地址](http://xingsiend.xsgzs.cn/)
+
+[使用文档-写给文案组](http://doc.xsgzs.cn/)
+
 社团官网后台管理系统，vue+elementui，虽然市面上后台模板很多，但还是选择手写，其实是为了练习vue和elementui，[区别于自己用node写的后端](https://github.com/1793523411/xingsi)，这个功能要更全面一些，且后端是java写的接口，毕竟是和别人一起开发的嘛，[跟mock模拟数据的这个风格很像](https://github.com/1793523411/vue-xingsimaster-mock)，但也有略微不同，因为这个是在学长的建议下改了好多布局上的东西
+
+
 
 
 ## 初始化项目完毕
@@ -9,7 +15,7 @@
 
 ## 后端接口提取（开发阶段的，有些后期改了没有同步）
 
-根路径：`http://39.101.140.225:8080`
+根路径：xxx
 
 ### 新闻
 
@@ -17,7 +23,7 @@
 
 请求参数：POST
 
-```json
+```js
 {
 "author": "xxx",//新闻作者姓名
 "title": "xxx",//新闻标题
@@ -36,7 +42,7 @@
 
 请求参数：GET
 
-```json
+```js
 {
   "id": 22 //新闻 id 编号，上传新闻成功后，后端返回的数据中包含新闻编号
 }
@@ -74,7 +80,7 @@ GET
 
 请求参数：
 
-```json
+```js
 {
   "name": "xxx", //相册名称
   "thumb": "xxx.jpg", //相册封面图片完整的 url 地址
@@ -86,7 +92,7 @@ GET
 
 请求参数：GET
 
-```json
+```js
 {
 "id":78 //此 id 编号为相册的 id，在哪一个相册中上传图片，这个 id 参数就是哪一个相册的 id
 "description":上传的图片的简略文字描述
@@ -96,7 +102,7 @@ GET
 修改相册：`/album/update`
 请求参数：GET
 
-```json
+```js
 {
   "id": 1, //要修改的相册 id
   "name": "xxxx", //修改后的相册名
@@ -113,7 +119,7 @@ GET
 
 请求参数：POST
 
-```json
+```js
 {
 "year": “2020”,//年份
 "description": "xxxx", //描述，可以描述 2020 年对应多少届，有什么成就之类的
@@ -123,7 +129,7 @@ GET
 接着上面接口添加任职情况：
 `/history/person/add`
 
-```json
+```js
 {
 "id": 21//id 为行思历史编号
 "data": [
@@ -146,7 +152,7 @@ GET
 
 修改历史：`/history/update`
 
-```json
+```js
 {
 “id”:11 //id 为每届历史编号
 "year": 2020,//修改后的年份
@@ -172,7 +178,7 @@ GET
 
 添加类目：
 
-```json
+```js
 {
   "description": "xxx" //例如:影视娱乐
 }
@@ -182,7 +188,7 @@ GET
 
 `/website/update`
 
-```json
+```js
 {
   "id": 1, //id 为要修改的类目编号
   "description": "影视娱乐" //类目描述
@@ -193,7 +199,7 @@ GET
 
 请求参数：
 
-```json
+```js
 {
   "id": 1, //id 为已创建的网站类目 id 编号
   "name": "谷歌",
@@ -206,7 +212,8 @@ GET
 ## 前台接口
 
 ### 轮播
-请求格式：get请求 http://121.36.55.44:8080/carousel_pics
+请求格式：get请求 http://xxx/carousel_pics
+```js
 {	
 	"code": 0,
 	"msg":
@@ -214,8 +221,10 @@ GET
 "jumpUrl":
 }]
 }
+```
 ### 新闻缩略：
-请求：get http://121.36.55.44:8080/news
+请求：get http://xxx/news
+```js
 {
 	"code": 0,	//成功0，不成功-1
 	"msg": ""
@@ -241,9 +250,10 @@ GET
 			"navigateLastPage":2
 		}
 }
-
+```
 ### 单条新闻：
-请求格式：Get请求http://121.36.55.44:8080/news/detail/{1}  1为新闻id
+请求格式：Get请求xxxx/news/detail/{1}  1为新闻id
+```js
 {
 	"code": 
 	"msg":
@@ -257,11 +267,11 @@ GET
 	}
 
 }
-
+```
 ###  相册：
 相册列表：
-get请求 http://121.36.55.44:8080/album
-
+get请求 xxxx/album
+```js
 {
 	"code": 
 	"msg":
@@ -272,9 +282,10 @@ get请求 http://121.36.55.44:8080/album
 		"albumTime": "相册创建时间",
 	}
 }
-
+```
 ### 具体相册：
-get  http://121.36.55.44:8080/album/{id}  id为相册id
+get  xxxx/album/{id}  id为相册id
+```js
 {
 	"code": 
 	"msg":
@@ -292,9 +303,10 @@ get  http://121.36.55.44:8080/album/{id}  id为相册id
 	}
 
 }
-
+```
 ### 历史：
-Get请求 http://121.36.55.44:8080/history
+Get请求 xxxx/history
+```js
 {
 	"code":
 	"msg":
@@ -304,9 +316,10 @@ Get请求 http://121.36.55.44:8080/history
 		"person":{"name": "张三", "grade": "计科", "job": "xxx"}
 	}
 }
-
+```
 ### 网址导航
-Get  121.36.55.44:8080/nagivation
+Get  xxxx/nagivation
+```js
 {
 	"code":
 	"msg":
@@ -317,5 +330,5 @@ Get  121.36.55.44:8080/nagivation
 			[列表]
 	}
 }
-
+```
 
